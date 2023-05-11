@@ -1,4 +1,20 @@
 from dataclasses import dataclass
+from jsonpickle  import decode, encode
+
+
+def ReadAllFromFile():
+    # return list of courses from file
+    with open("databas.txt", "r") as file:
+        texten = file.read()
+        return decode(texten)
+
+def SaveAllToFile(lista):
+    # Ta listan -> JSON (text)
+    s = encode(lista)
+    #Spara till fil
+    with open("databas.txt","w") as file:
+        file.write(s)
+
 
 @dataclass
 class Course:
@@ -7,7 +23,8 @@ class Course:
     Type: str
     Calories:int
 
-lunchMeny = []
+# När programmet startar läsa upp alla från FIL ->
+lunchMeny = ReadAllFromFile()
 
 while True:
     print("1. Lista meny")
@@ -16,6 +33,7 @@ while True:
     print("4. Exit")
     a = input("Action:")
     if a == "4":
+        SaveAllToFile(lunchMeny)
         break
     if  a == "1":
         print("*** DAGENS LUNCH ***")

@@ -1,0 +1,1 @@
+[{"py/object": "__main__.Course", "Name": "Pannkakor", "Price": 12, "Type": "3", "Calories": 4}, {"py/object": "__main__.Course", "Name": "Hamburgare2", "Price": 11, "Type": "ee", "Calories": 3}]
